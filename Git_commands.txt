@@ -85,3 +85,5 @@ git stash pop
 git tag v1.0           # Light tag
 git tag -a v1.0 -m "Release 1.0"  # Annotated tag
 git push origin v1.0   # Tag push karo
+
+Welcome to Git and Git Commands...

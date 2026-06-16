@@ -1,3 +1,4 @@
+COMPLETE GIT COMMANDS FOR PRACTICE
 1. Setup & Initialize
 git config --global user.name "Sanket Pawar"
 git config --global user.email "sanket@example.com"

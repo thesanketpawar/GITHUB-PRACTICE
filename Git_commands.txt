@@ -1,0 +1,86 @@
+1. Setup & Initialize
+git config --global user.name "Sanket Pawar"
+git config --global user.email "sanket@example.com"
+git init                    # New repository banata hai (hidden .git folder) [web:5]
+git clone <url>            # Remote repo ki local copy [web:5]
+
+mkdir my-project
+cd my-project
+git init
+
+2. Status & View Changes
+git status                 # Untracked/modified/staged files dikhata hai [web:1][web:5]
+git log                    # Commit history dikhata hai
+git log --oneline         # Compact history
+
+3. Staging & Committing
+git add <file>            # Specific file stage karo [web:1][web:5]
+git add .                 # SAARI changes stage karo [web:1]
+git commit -m "message"   # Stage kiye changes ko commit karo [web:1][web:5]
+
+git add index.html
+git add style.css
+git commit -m "Added homepage with styling"
+
+4. Branching
+git branch                # Local branches dikhao [web:5]
+git branch <name>         # New branch banao
+git switch <name>         # Branch switch karo (new Git) [web:10]
+git checkout <name>       # Branch switch (older) [web:10]
+git switch -c <name>      # New branch banao + switch karo
+
+git branch login-feature
+git switch login-feature
+# Code likho...
+git add .
+git commit -m "Added login functionality"
+
+5. Merging
+git merge <branch-name>   # Branch ko current mein merge karo [web:5]
+
+git switch main
+git merge login-feature
+
+6. Remote Operations
+git remote add origin <url>     # Remote link karo [web:1]
+git push origin <branch-name>   # Local changes remote par bhejo [web:1]
+git pull origin <branch-name>   # Remote se fetch + merge [web:1][web:10]
+git fetch                       # Sirf download, merge nahi
+
+git pull origin main
+
+7. Conflict Resolution
+# Jab merge conflict aaye:
+# 1. File kholo, <<<<<<<, =======, >>>>>>>之间 resolve karo
+# 2. git add <resolved-file>
+# 3. git commit -m "Resolved merge conflict"
+
+git merge feature-branch
+# Conflict aata hai
+# File edit karo, conflict remove karo
+git add resolved-file.txt
+git commit -m "Resolved conflict"
+
+8. Undo Changes
+git restore <file>          # Working directory se change discard
+git restore --staged <file> # Staging se unstage
+git reset --soft HEAD~1     # Commit undo, changes staged rahenge
+git reset --hard HEAD~1     # Commit + changes dono delete
+git revert <commit>         # Naya commit bana ke change undo karo (safe)
+
+git revert HEAD    # Safe method - naya commit
+
+9. Stash (Temporary Save)
+git stash              # Current changes temporarily save
+git stash list
+git stash pop          # Wapas laao
+git stash apply
+
+git stash
+# Bug fix karo
+git stash pop
+
+10. Tags (Versioning)
+git tag v1.0           # Light tag
+git tag -a v1.0 -m "Release 1.0"  # Annotated tag
+git push origin v1.0   # Tag push karo
